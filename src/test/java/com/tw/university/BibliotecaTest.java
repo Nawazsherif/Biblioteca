@@ -6,13 +6,13 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-class UserTest {
+class BibliotecaTest {
 
     @Test
     public void shouldReturnValidWelcomeMessage() {
-        User user = new User();
+        Biblioteca biblioteca = new Biblioteca();
 
-        assertThat(user.welcomeMsg(), is(equalTo("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!")));
+        assertThat(biblioteca.welcomeMsg(), is(equalTo("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!")));
     }
 
 }
