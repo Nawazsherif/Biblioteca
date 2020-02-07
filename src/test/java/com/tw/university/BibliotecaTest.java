@@ -12,12 +12,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BibliotecaTest {
 
-    private Biblioteca biblioteca;
     ArrayList<Book> books;
+    private Biblioteca biblioteca;
 
     @BeforeEach
-    public void setUp()
-    {
+    public void setUp() {
         biblioteca = new Biblioteca();
         Book book1 = new Book("Adventure Time", "Crusoe", 1999);
         Book book2 = new Book("Sorcerer's stone", "Rowling", 1987);
@@ -34,7 +33,12 @@ class BibliotecaTest {
 
     @Test
     public void shouldReturnValidBookDetails() {
+        Book book1 = new Book("Adventure Time", "Crusoe", 1999);
+        Book book2 = new Book("Sorcerer's stone", "Rowling", 1987);
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book1);
+        books.add(book2);
+
         assertEquals(biblioteca.books(), books);
     }
-
 }
