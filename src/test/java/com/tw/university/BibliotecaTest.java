@@ -19,13 +19,12 @@ class BibliotecaTest {
     public void setUp()
     {
         biblioteca = new Biblioteca();
-        Book book1 = new Book("Adventure Time");
-        Book book2 = new Book("Sorcerer's stone");
+        Book book1 = new Book("Adventure Time", "Crusoe", 1999);
+        Book book2 = new Book("Sorcerer's stone", "Rowling", 1987);
         books = new ArrayList<>();
         books.add(book1);
         books.add(book2);
         biblioteca.add(books);
-        new ArrayList<>().equals(new ArrayList<>());
     }
 
     @Test
