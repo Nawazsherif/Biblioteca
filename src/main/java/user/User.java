@@ -4,6 +4,7 @@ import com.tw.university.Biblioteca;
 import com.tw.university.Book;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class User {
@@ -23,7 +24,21 @@ public class User {
 
     public static void main(String[] args) {
         User user = new User();
-        user.printAllBooks();
+
+        System.out.println("\nMain menu : ");
+        System.out.println("1. List books");
+        System.out.println("\nEnter choice : ");
+        Scanner ss = new Scanner(System.in);
+        switch (ss.nextInt()) {
+            case 1: {
+                user.printAllBooks();
+                break;
+            }
+            default: {
+                System.out.println("Please select a valid option!");
+            }
+        }
+
     }
 
     public void printAllBooks() {

@@ -11,7 +11,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BibliotecaTest {
-
     ArrayList<Book> books;
     private Biblioteca biblioteca;
 
@@ -28,7 +27,8 @@ class BibliotecaTest {
 
     @Test
     public void shouldReturnValidWelcomeMessage() {
-        assertThat(biblioteca.welcomeMsg(), is(equalTo("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!")));
+        assertThat(biblioteca.welcomeMsg(), is(equalTo("Welcome to Biblioteca. Your one-stop-shop for " +
+                "great book titles in Bangalore!")));
     }
 
     @Test
