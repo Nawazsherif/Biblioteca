@@ -42,7 +42,7 @@ public class User {
                     user.printAllBooks();
                     System.out.println("\nEnter choice : ");
                     int bookNumber = ss.nextInt();
-                    user.biblioteca.checkOut(bookNumber);
+                    System.out.println(user.biblioteca.checkOut(bookNumber));
                     break;
                 }
                 case 3: {

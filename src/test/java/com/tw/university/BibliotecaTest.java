@@ -44,4 +44,9 @@ class BibliotecaTest {
         biblioteca.checkOut(2);
         assertTrue(!biblioteca.books().contains(book2));
     }
+
+    @Test
+    public void shouldReturnSuccessMsgOnCheckingOutABook() {
+        assertThat(biblioteca.checkOut(2), is(equalTo("Thank you! Enjoy the book")));
+    }
 }

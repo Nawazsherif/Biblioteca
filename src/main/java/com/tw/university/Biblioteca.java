@@ -19,7 +19,12 @@ public class Biblioteca {
         return books;
     }
 
-    public final void checkOut(int bookNumber) {
-        books.remove(bookNumber-1);
+    public final String checkOut(int bookNumber) {
+        String returnMsg = "";
+        if (bookNumber <= books.size() && bookNumber > 0) {
+            books.remove(bookNumber - 1);
+            returnMsg = "Thank you! Enjoy the book";
+        }
+        return returnMsg;
     }
 }
