@@ -18,4 +18,8 @@ public class Biblioteca {
     public final ArrayList<Book> books() {
         return books;
     }
+
+    public final void checkOut(int bookNumber) {
+        books.remove(bookNumber-1);
+    }
 }

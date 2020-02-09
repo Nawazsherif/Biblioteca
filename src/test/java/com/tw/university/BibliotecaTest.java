@@ -9,16 +9,19 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class BibliotecaTest {
     ArrayList<Book> books;
+    Book book1;
+    Book book2;
     private Biblioteca biblioteca;
 
     @BeforeEach
     public void setUp() {
         biblioteca = new Biblioteca();
-        Book book1 = new Book("Adventure Time", "Crusoe", 1999);
-        Book book2 = new Book("Sorcerer's stone", "Rowling", 1987);
+        book1 = new Book("Adventure Time", "Crusoe", 1999);
+        book2 = new Book("Sorcerer's stone", "Rowling", 1987);
         books = new ArrayList<>();
         books.add(book1);
         books.add(book2);
@@ -33,12 +36,12 @@ class BibliotecaTest {
 
     @Test
     public void shouldReturnValidBookDetails() {
-        Book book1 = new Book("Adventure Time", "Crusoe", 1999);
-        Book book2 = new Book("Sorcerer's stone", "Rowling", 1987);
-        ArrayList<Book> books = new ArrayList<>();
-        books.add(book1);
-        books.add(book2);
-
         assertEquals(biblioteca.books(), books);
+    }
+
+    @Test
+    public void shouldCheckoutABookSuccessfully() {
+        biblioteca.checkOut(2);
+        assertTrue(!biblioteca.books().contains(book2));
     }
 }
