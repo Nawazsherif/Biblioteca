@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
+import static java.lang.System.exit;
+
 public class User {
 
     Biblioteca biblioteca;
@@ -24,18 +26,23 @@ public class User {
 
     public static void main(String[] args) {
         User user = new User();
-
-        System.out.println("\nMain menu : ");
-        System.out.println("1. List books");
-        System.out.println("\nEnter choice : ");
-        Scanner ss = new Scanner(System.in);
-        switch (ss.nextInt()) {
-            case 1: {
-                user.printAllBooks();
-                break;
-            }
-            default: {
-                System.out.println("Please select a valid option!");
+        while (true) {
+            System.out.println("\nMain menu : ");
+            System.out.println("1. List books");
+            System.out.println("2. Quit");
+            System.out.println("\nEnter choice : ");
+            Scanner ss = new Scanner(System.in);
+            switch (ss.nextInt()) {
+                case 1: {
+                    user.printAllBooks();
+                    break;
+                }
+                case 2: {
+                    exit(0);
+                }
+                default: {
+                    System.out.println("Please select a valid option!");
+                }
             }
         }
 
