@@ -49,4 +49,9 @@ class BibliotecaTest {
     public void shouldReturnSuccessMsgOnCheckingOutABook() {
         assertThat(biblioteca.checkOut(2), is(equalTo("Thank you! Enjoy the book")));
     }
+
+    @Test
+    public void shouldReturnUnSuccessMsgOnCheckingOutABook() {
+        assertThat(biblioteca.checkOut(5), is(equalTo("Sorry, that book is not available")));
+    }
 }

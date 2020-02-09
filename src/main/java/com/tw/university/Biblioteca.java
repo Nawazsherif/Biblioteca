@@ -20,7 +20,7 @@ public class Biblioteca {
     }
 
     public final String checkOut(int bookNumber) {
-        String returnMsg = "";
+        String returnMsg = "Sorry, that book is not available";
         if (bookNumber <= books.size() && bookNumber > 0) {
             books.remove(bookNumber - 1);
             returnMsg = "Thank you! Enjoy the book";
