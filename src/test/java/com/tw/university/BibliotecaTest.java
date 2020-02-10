@@ -78,4 +78,9 @@ class BibliotecaTest {
         assertThat(biblioteca.returnBook(book2), is(equalTo("Thank you for returning the book.")));
     }
 
+    @Test
+    public void shouldReturnUnSuccessMsgOnReturningABook() {
+        Book book3 = new Book("Curse of the Wild", "Toriyama", 1986);
+        assertThat(biblioteca.returnBook(book3), is(equalTo("That is not a valid book to return")));
+    }
 }

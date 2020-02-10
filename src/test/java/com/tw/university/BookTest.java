@@ -16,4 +16,11 @@ class BookTest {
         assertThat(book1, is(equalTo(book2)));
     }
 
+    @Test
+    public void shouldEquateTwoBooksWithSameHashCodeDetails() {
+        Book book1 = new Book("Harry Potter", "Rowling", 1999);
+        Book book2 = new Book("Harry Potter", "Rowling", 1999);
+
+        assertThat(book1.hashCode(), is(equalTo(book2.hashCode())));
+    }
 }
