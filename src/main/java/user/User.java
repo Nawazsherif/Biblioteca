@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 
 import static java.lang.System.exit;
 
+//Represents the user
 public class User {
 
     Biblioteca biblioteca;
@@ -42,15 +43,17 @@ public class User {
                 case 2: {
                     user.printAllBooks(user.biblioteca.books());
                     System.out.println("\nEnter book number to checkout : ");
-                    int bookNumber = ss.nextInt();
-                    System.out.println(user.biblioteca.checkOut(bookNumber));
+                    int bookNumber = ss.nextInt() - 1;
+                    Book book = user.biblioteca.books().get(bookNumber);
+                    System.out.println(user.biblioteca.checkOut(book));
                     break;
                 }
                 case 3: {
                     user.printAllBooks(user.biblioteca.checkedOutBooks());
                     System.out.println("\nEnter book number to return : ");
-                    int bookNumber = ss.nextInt();
-                    user.biblioteca.returnBook(bookNumber);
+                    int bookNumber = ss.nextInt() - 1;
+                    Book book = user.biblioteca.checkedOutBooks().get(bookNumber);
+                    System.out.println(user.biblioteca.returnBook(book));
                     break;
                 }
                 case 4: {

@@ -44,24 +44,30 @@ class BibliotecaTest {
 
     @Test
     public void shouldCheckoutABookSuccessfully() {
-        biblioteca.checkOut(2);
+        biblioteca.checkOut(book2);
         assertFalse(biblioteca.books().contains(book2));
     }
 
     @Test
     public void shouldReturnSuccessMsgOnCheckingOutABook() {
-        assertThat(biblioteca.checkOut(2), is(equalTo("Thank you! Enjoy the book")));
+        assertThat(biblioteca.checkOut(book2), is(equalTo("Thank you! Enjoy the book")));
     }
 
     @Test
     public void shouldReturnUnSuccessMsgOnCheckingOutABook() {
-        assertThat(biblioteca.checkOut(5), is(equalTo("Sorry, that book is not available")));
+        Book book3 = new Book("Curse of the Wild", "Toriyama", 1986);
+        assertThat(biblioteca.checkOut(book3), is(equalTo("Sorry, that book is not available")));
     }
 
     @Test
     public void shouldReturnBookBackToTheLibrary() {
-        biblioteca.checkOut(1);
-        biblioteca.returnBook(1);
+        biblioteca.checkOut(book1);
+        biblioteca.returnBook(book1);
         assertTrue(biblioteca.books().contains(book1));
+    }
+
+    @Test
+    public void shouldReturnSuccessMsgOnReturningABook() {
+        assertThat(biblioteca.checkOut(book2), is(equalTo("Thank you! Enjoy the book")));
     }
 }

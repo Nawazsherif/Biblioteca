@@ -2,12 +2,13 @@ package com.tw.university;
 
 import java.util.Objects;
 
+//Represents book
 public class Book {
     public final String name;
     public final String author;
     public final int publishedYear;
 
-    public Book(String name, String Author, int publishedYear){
+    public Book(String name, String Author, int publishedYear) {
         this.name = name;
         author = Author;
         this.publishedYear = publishedYear;

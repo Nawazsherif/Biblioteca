@@ -2,7 +2,7 @@ package com.tw.university;
 
 import java.util.ArrayList;
 
-//
+//Represents Biblioteca library
 public class Biblioteca {
     private static final String WELCOME_MSG = "Welcome to Biblioteca. Your one-stop-shop " +
             "for great book titles in Bangalore!";
@@ -18,14 +18,14 @@ public class Biblioteca {
         checkedOutBooks = new ArrayList<>();
     }
 
-    public final String checkOut(int bookNumber) {
-        String returnMsg = "Sorry, that book is not available";
-        if (bookNumber <= books.size() && bookNumber > 0) {
-            checkedOutBooks.add(books.get(bookNumber - 1));
-            books.remove(bookNumber - 1);
-            returnMsg = "Thank you! Enjoy the book";
+    public final String checkOut(Book book) {
+        String checkOutMsg = "Sorry, that book is not available";
+        if (books.contains(book)) {
+            checkedOutBooks.add(book);
+            books.remove(book);
+            checkOutMsg = "Thank you! Enjoy the book";
         }
-        return returnMsg;
+        return checkOutMsg;
     }
 
     public final ArrayList<Book> books() {
@@ -36,8 +36,13 @@ public class Biblioteca {
         return checkedOutBooks;
     }
 
-    public void returnBook(int bookNumber) {
-        books.add(checkedOutBooks.get(bookNumber - 1));
-        checkedOutBooks.remove(bookNumber - 1);
+    public final String returnBook(Book book) {
+        String bookReturnMsg = "";
+        if (checkedOutBooks.contains(book)) {
+            books.add(book);
+            checkedOutBooks.remove(book);
+            bookReturnMsg = "Thank you for returning the book.";
+        }
+        return bookReturnMsg;
     }
 }
