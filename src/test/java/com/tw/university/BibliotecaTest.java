@@ -43,9 +43,15 @@ class BibliotecaTest {
     }
 
     @Test
-    public void shouldCheckoutABookSuccessfully() {
+    public void shouldCheckoutABookSuccessfullyWillRemoveTheBookFromLibrary() {
         biblioteca.checkOut(book2);
         assertFalse(biblioteca.books().contains(book2));
+    }
+
+    @Test
+    public void shouldCheckoutABookSuccessfullyWillAddTheBookToTheCheckedOutBooks() {
+        biblioteca.checkOut(book2);
+        assertTrue(biblioteca.checkedOutBooks().contains(book2));
     }
 
     @Test
@@ -68,6 +74,8 @@ class BibliotecaTest {
 
     @Test
     public void shouldReturnSuccessMsgOnReturningABook() {
-        assertThat(biblioteca.checkOut(book2), is(equalTo("Thank you! Enjoy the book")));
+        biblioteca.checkOut(book2);
+        assertThat(biblioteca.returnBook(book2), is(equalTo("Thank you for returning the book.")));
     }
+
 }

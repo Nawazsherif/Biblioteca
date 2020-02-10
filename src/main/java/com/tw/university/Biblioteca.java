@@ -37,7 +37,7 @@ public class Biblioteca {
     }
 
     public final String returnBook(Book book) {
-        String bookReturnMsg = "";
+        String bookReturnMsg = "That is not a valid book to return";
         if (checkedOutBooks.contains(book)) {
             books.add(book);
             checkedOutBooks.remove(book);
