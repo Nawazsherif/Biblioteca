@@ -8,13 +8,11 @@ import java.util.ArrayList;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class BibliotecaTest {
-    ArrayList<Book> books;
-    Book book1;
-    Book book2;
+    private Book book1;
+    private Book book2;
     private Biblioteca biblioteca;
 
     @BeforeEach
@@ -22,7 +20,7 @@ class BibliotecaTest {
         biblioteca = new Biblioteca();
         book1 = new Book("Adventure Time", "Crusoe", 1999);
         book2 = new Book("Sorcerer's stone", "Rowling", 1987);
-        books = new ArrayList<>();
+        ArrayList<Book> books = new ArrayList<>();
         books.add(book1);
         books.add(book2);
         biblioteca.add(books);
@@ -36,13 +34,18 @@ class BibliotecaTest {
 
     @Test
     public void shouldReturnValidBookDetails() {
+        Book book1 = new Book("Adventure Time", "Crusoe", 1999);
+        Book book2 = new Book("Sorcerer's stone", "Rowling", 1987);
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book1);
+        books.add(book2);
         assertEquals(biblioteca.books(), books);
     }
 
     @Test
     public void shouldCheckoutABookSuccessfully() {
         biblioteca.checkOut(2);
-        assertTrue(!biblioteca.books().contains(book2));
+        assertFalse(biblioteca.books().contains(book2));
     }
 
     @Test
@@ -53,5 +56,12 @@ class BibliotecaTest {
     @Test
     public void shouldReturnUnSuccessMsgOnCheckingOutABook() {
         assertThat(biblioteca.checkOut(5), is(equalTo("Sorry, that book is not available")));
+    }
+
+    @Test
+    public void shouldReturnBookBackToTheLibrary() {
+        biblioteca.checkOut(1);
+        biblioteca.returnBook(1);
+        assertTrue(biblioteca.books().contains(book1));
     }
 }

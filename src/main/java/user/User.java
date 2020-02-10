@@ -31,21 +31,29 @@ public class User {
             System.out.println("\nMain menu : ");
             System.out.println("1. List books");
             System.out.println("2. Checkout a book");
-            System.out.println("3. Quit");
+            System.out.println("3. Return a book");
+            System.out.println("4. Quit");
             System.out.println("\nEnter choice : ");
             switch (ss.nextInt()) {
                 case 1: {
-                    user.printAllBooks();
+                    user.printAllBooks(user.biblioteca.books());
                     break;
                 }
                 case 2: {
-                    user.printAllBooks();
-                    System.out.println("\nEnter choice : ");
+                    user.printAllBooks(user.biblioteca.books());
+                    System.out.println("\nEnter book number to checkout : ");
                     int bookNumber = ss.nextInt();
                     System.out.println(user.biblioteca.checkOut(bookNumber));
                     break;
                 }
                 case 3: {
+                    user.printAllBooks(user.biblioteca.checkedOutBooks());
+                    System.out.println("\nEnter book number to return : ");
+                    int bookNumber = ss.nextInt();
+                    user.biblioteca.returnBook(bookNumber);
+                    break;
+                }
+                case 4: {
                     exit(0);
                 }
                 default: {
@@ -56,14 +64,14 @@ public class User {
 
     }
 
-    public void printAllBooks() {
+    public void printAllBooks(ArrayList<Book> books) {
         Stream.generate(() -> " _").limit(28).forEach(System.out::print);
         System.out.println();
         System.out.println(String.format("|          Name%-18s|" + "    Author%-5s|" + " Year%-1s|", " ", " ", " "));
         Stream.generate(() -> " -").limit(28).forEach(System.out::print);
         System.out.println();
-        biblioteca.books().forEach(book -> System.out.println(String.format("|   %d. %-26s|" + "    %-11s|" + " %-5d|",
-                biblioteca.books().indexOf(book)+1, book.name, book.author, book.publishedYear)));
+        books.forEach(book -> System.out.println(String.format("|   %d. %-26s|" + "    %-11s|" + " %-5d|",
+                books.indexOf(book) + 1, book.name, book.author, book.publishedYear)));
         Stream.generate(() -> " -").limit(28).forEach(System.out::print);
         System.out.println();
     }
