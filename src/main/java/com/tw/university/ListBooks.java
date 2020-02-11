@@ -3,9 +3,11 @@ package com.tw.university;
 public class ListBooks implements Menu {
 
     private final Library library;
+    private final BibliotecaUI bibliotecaUI;
 
-    public ListBooks(Library library) {
+    public ListBooks(Library library, BibliotecaUI bibliotecaUI) {
         this.library = library;
+        this.bibliotecaUI = bibliotecaUI;
     }
 
     @Override
@@ -15,6 +17,6 @@ public class ListBooks implements Menu {
 
     @Override
     public void onSelect() {
-        library.books();
+        bibliotecaUI.listBooks(library.books());
     }
 }
