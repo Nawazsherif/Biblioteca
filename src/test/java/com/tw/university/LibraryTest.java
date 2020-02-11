@@ -10,25 +10,25 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-class BibliotecaTest {
+class LibraryTest {
     private Book book1;
     private Book book2;
-    private Biblioteca biblioteca;
+    private Library library;
 
     @BeforeEach
     public void setUp() {
-        biblioteca = new Biblioteca();
+        library = new Library();
         book1 = new Book("Adventure Time", "Crusoe", 1999);
         book2 = new Book("Sorcerer's stone", "Rowling", 1987);
         ArrayList<Book> books = new ArrayList<>();
         books.add(book1);
         books.add(book2);
-        biblioteca.add(books);
+        library.add(books);
     }
 
     @Test
     public void shouldReturnValidWelcomeMessage() {
-        assertThat(biblioteca.welcomeMsg(), is(equalTo("Welcome to Biblioteca. Your one-stop-shop for " +
+        assertThat(library.welcomeMsg(), is(equalTo("Welcome to Library. Your one-stop-shop for " +
                 "great book titles in Bangalore!")));
     }
 
@@ -39,48 +39,48 @@ class BibliotecaTest {
         ArrayList<Book> books = new ArrayList<>();
         books.add(book1);
         books.add(book2);
-        assertEquals(biblioteca.books(), books);
+        assertEquals(library.books(), books);
     }
 
     @Test
     public void shouldCheckoutABookSuccessfullyWillRemoveTheBookFromLibrary() {
-        biblioteca.checkOut(book2);
-        assertFalse(biblioteca.books().contains(book2));
+        library.checkOut(book2);
+        assertFalse(library.books().contains(book2));
     }
 
     @Test
     public void shouldCheckoutABookSuccessfullyWillAddTheBookToTheCheckedOutBooks() {
-        biblioteca.checkOut(book2);
-        assertTrue(biblioteca.checkedOutBooks().contains(book2));
+        library.checkOut(book2);
+        assertTrue(library.checkedOutBooks().contains(book2));
     }
 
     @Test
     public void shouldReturnSuccessMsgOnCheckingOutABook() {
-        assertThat(biblioteca.checkOut(book2), is(equalTo("Thank you! Enjoy the book")));
+        assertThat(library.checkOut(book2), is(equalTo("Thank you! Enjoy the book")));
     }
 
     @Test
     public void shouldReturnUnSuccessMsgOnCheckingOutABook() {
         Book book3 = new Book("Curse of the Wild", "Toriyama", 1986);
-        assertThat(biblioteca.checkOut(book3), is(equalTo("Sorry, that book is not available")));
+        assertThat(library.checkOut(book3), is(equalTo("Sorry, that book is not available")));
     }
 
     @Test
     public void shouldReturnBookBackToTheLibrary() {
-        biblioteca.checkOut(book1);
-        biblioteca.returnBook(book1);
-        assertTrue(biblioteca.books().contains(book1));
+        library.checkOut(book1);
+        library.returnBook(book1);
+        assertTrue(library.books().contains(book1));
     }
 
     @Test
     public void shouldReturnSuccessMsgOnReturningABook() {
-        biblioteca.checkOut(book2);
-        assertThat(biblioteca.returnBook(book2), is(equalTo("Thank you for returning the book.")));
+        library.checkOut(book2);
+        assertThat(library.returnBook(book2), is(equalTo("Thank you for returning the book.")));
     }
 
     @Test
     public void shouldReturnUnSuccessMsgOnReturningABook() {
         Book book3 = new Book("Curse of the Wild", "Toriyama", 1986);
-        assertThat(biblioteca.returnBook(book3), is(equalTo("That is not a valid book to return")));
+        assertThat(library.returnBook(book3), is(equalTo("That is not a valid book to return")));
     }
 }

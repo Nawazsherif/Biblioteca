@@ -2,9 +2,10 @@ package com.tw.university;
 
 import java.util.ArrayList;
 
-//Represents Biblioteca library
-public class Biblioteca {
-    private static final String WELCOME_MSG = "Welcome to Biblioteca. Your one-stop-shop " +
+//Represents Library
+
+public class Library {
+    private static final String WELCOME_MSG = "Welcome to Library. Your one-stop-shop " +
             "for great book titles in Bangalore!";
     private ArrayList<Book> books;
     private ArrayList<Book> checkedOutBooks;

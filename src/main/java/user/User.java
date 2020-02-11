@@ -1,6 +1,6 @@
 package user;
 
-import com.tw.university.Biblioteca;
+import com.tw.university.Library;
 import com.tw.university.Book;
 
 import java.util.ArrayList;
@@ -12,17 +12,17 @@ import static java.lang.System.exit;
 //Represents the user
 public class User {
 
-    Biblioteca biblioteca;
+    Library library;
 
     public User() {
-        biblioteca = new Biblioteca();
+        library = new Library();
         ArrayList<Book> books = new ArrayList<>();
         Book book1 = new Book("Adventure Time", "Crusoe", 1999);
         Book book2 = new Book("Sorcerer's stone", "Rowling", 1987);
         books.add(book1);
         books.add(book2);
-        biblioteca.add(books);
-        System.out.println(biblioteca.welcomeMsg());
+        library.add(books);
+        System.out.println(library.welcomeMsg());
     }
 
     public static void main(String[] args) {
@@ -37,23 +37,23 @@ public class User {
             System.out.println("\nEnter choice : ");
             switch (ss.nextInt()) {
                 case 1: {
-                    user.printAllBooks(user.biblioteca.books());
+                    user.printAllBooks(user.library.books());
                     break;
                 }
                 case 2: {
-                    user.printAllBooks(user.biblioteca.books());
+                    user.printAllBooks(user.library.books());
                     System.out.println("\nEnter book number to checkout : ");
                     int bookNumber = ss.nextInt() - 1;
-                    Book book = user.biblioteca.books().get(bookNumber);
-                    System.out.println(user.biblioteca.checkOut(book));
+                    Book book = user.library.books().get(bookNumber);
+                    System.out.println(user.library.checkOut(book));
                     break;
                 }
                 case 3: {
-                    user.printAllBooks(user.biblioteca.checkedOutBooks());
+                    user.printAllBooks(user.library.checkedOutBooks());
                     System.out.println("\nEnter book number to return : ");
                     int bookNumber = ss.nextInt() - 1;
-                    Book book = user.biblioteca.checkedOutBooks().get(bookNumber);
-                    System.out.println(user.biblioteca.returnBook(book));
+                    Book book = user.library.checkedOutBooks().get(bookNumber);
+                    System.out.println(user.library.returnBook(book));
                     break;
                 }
                 case 4: {
