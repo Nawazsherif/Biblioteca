@@ -11,6 +11,7 @@ class BibliotecaApp implements BibliotecaUI {
 
     private final Library library;
     private final Menu menu;
+    Scanner input = new Scanner(System.in);
 
     public BibliotecaApp(Menu menu, Library library) {
         this.menu = menu;
@@ -18,21 +19,22 @@ class BibliotecaApp implements BibliotecaUI {
     }
 
     public void displayMenu() {
+        //noinspection InfiniteLoopStatement
         while (true) {
             System.out.println("Main menu : ");
             menu.forEach(menuItem -> System.out.println(menu.indexOf(menuItem) + 1 + ". " + menuItem.option()));
-            Scanner input = new Scanner(System.in);
+
             System.out.println("Enter choice : ");
             int option = input.nextInt();
-            if (validOption(option))
+            if (option <= menu.size() && notNegative(option))
                 menu.get(option - 1).onSelect();
             else
                 System.out.println("Please enter a valid option!");
         }
     }
 
-    private boolean validOption(int option) {
-        return option <= menu.size() && option > 0;
+    private boolean notNegative(int option) {
+        return option > 0;
     }
 
     @Override
@@ -50,6 +52,20 @@ class BibliotecaApp implements BibliotecaUI {
 
     public void startApp() {
         System.out.println(library.welcomeMsg());
+    }
+
+    @Override
+    public Book checkOutBooks(ArrayList<Book> books) {
+        System.out.println("Enter choice: ");
+        int option = input.nextInt();
+        if (option <= books.size() && notNegative(option))
+            return books.get(option - 1);
+        return null;
+    }
+
+    @Override
+    public void displayMessage(String message) {
+        System.out.println(message);
     }
 
     public void addOptions(MenuItem option) {

@@ -1,9 +1,6 @@
 package user;
 
-import com.tw.university.Book;
-import com.tw.university.Library;
-import com.tw.university.ListBooks;
-import com.tw.university.Menu;
+import com.tw.university.*;
 
 import java.util.ArrayList;
 
@@ -21,8 +18,8 @@ public class User {
         Menu menu = new Menu();
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library);
-        ListBooks option = new ListBooks(library, bibliotecaApp);
-        bibliotecaApp.addOptions(option);
+        bibliotecaApp.addOptions(new ListBooks(library, bibliotecaApp));
+        bibliotecaApp.addOptions(new checkOutBooks(library, bibliotecaApp));
 
         bibliotecaApp.startApp();
         bibliotecaApp.displayMenu();
