@@ -1,44 +1,30 @@
 package user;
 
-import com.tw.university.*;
+import com.tw.university.Book;
+import com.tw.university.Library;
+import com.tw.university.ListBooks;
+import com.tw.university.Menu;
 
 import java.util.ArrayList;
-import java.util.stream.Stream;
 
-//Represents the user
-public class User implements BibliotecaUI {
-
-    BibliotecaApp bibliotecaApp;
+public class User {
 
     public static void main(String[] args) {
+        Book book1 = new Book("Adventure Time", "Crusoe", 1999);
+        Book book2 = new Book("Sorcerer's stone", "Rowling", 1987);
 
-        User user = new User();
-        user.startApp();
-        user.displayMenu();
-    }
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(book1);
+        books.add(book2);
 
-    public void startApp() {
-        bibliotecaApp = new BibliotecaApp();
-        bibliotecaApp.bind(this);
-        Library library = bibliotecaApp.library;
-        System.out.println(library.welcomeMsg());
-    }
+        Library library = new Library(books);
+        Menu menu = new Menu();
 
-    private void displayMenu() {
-        Menu menu = new ListBooks(bibliotecaApp.library,bibliotecaApp.bibliotecaUI);
-        menu.onSelect();
-    }
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library);
+        ListBooks option = new ListBooks(library, bibliotecaApp);
+        bibliotecaApp.addOptions(option);
 
-    @Override
-    public void listBooks(ArrayList<Book> books) {
-        Stream.generate(() -> " _").limit(28).forEach(System.out::print);
-        System.out.println();
-        System.out.println(String.format("|          Name%-18s|" + "    Author%-5s|" + " Year%-1s|", " ", " ", " "));
-        Stream.generate(() -> " -").limit(28).forEach(System.out::print);
-        System.out.println();
-        books.forEach(book -> System.out.println(String.format("|   %d. %-26s|" + "    %-11s|" + " %-5d|",
-                books.indexOf(book) + 1, book.name, book.author, book.publishedYear)));
-        Stream.generate(() -> " -").limit(28).forEach(System.out::print);
-        System.out.println();
+        bibliotecaApp.startApp();
+        bibliotecaApp.displayMenu();
     }
 }

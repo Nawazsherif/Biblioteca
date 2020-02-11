@@ -17,13 +17,13 @@ class LibraryTest {
 
     @BeforeEach
     public void setUp() {
-        library = new Library();
+
         book1 = new Book("Adventure Time", "Crusoe", 1999);
         book2 = new Book("Sorcerer's stone", "Rowling", 1987);
         ArrayList<Book> books = new ArrayList<>();
         books.add(book1);
         books.add(book2);
-        library.add(books);
+        library = new Library(books);
     }
 
     @Test

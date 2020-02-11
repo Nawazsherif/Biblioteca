@@ -1,6 +1,6 @@
 package com.tw.university;
 
-public class ListBooks implements Menu {
+public class ListBooks implements MenuItem {
 
     private final Library library;
     private final BibliotecaUI bibliotecaUI;

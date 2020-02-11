@@ -1,7 +1,7 @@
 package com.tw.university;
 
-public interface Menu {
-    String option();
+import java.util.ArrayList;
 
-    void onSelect();
+public class Menu extends ArrayList<MenuItem> {
+
 }
