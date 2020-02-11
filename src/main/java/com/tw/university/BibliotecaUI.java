@@ -9,4 +9,6 @@ public interface BibliotecaUI {
     Book checkOutBooks(ArrayList<Book> books);
 
     void displayMessage(String message);
+
+    Book returnBooks(ArrayList<Book> checkedOutBooks);
 }

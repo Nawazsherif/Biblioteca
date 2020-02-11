@@ -56,16 +56,25 @@ class BibliotecaApp implements BibliotecaUI {
 
     @Override
     public Book checkOutBooks(ArrayList<Book> books) {
-        System.out.println("Enter choice: ");
-        int option = input.nextInt();
-        if (option <= books.size() && notNegative(option))
-            return books.get(option - 1);
-        return null;
+        return selectABook(books);
     }
 
     @Override
     public void displayMessage(String message) {
         System.out.println(message);
+    }
+
+    @Override
+    public Book returnBooks(ArrayList<Book> books) {
+        return selectABook(books);
+    }
+
+    private Book selectABook(ArrayList<Book> books) {
+        System.out.println("Enter choice: ");
+        int option = input.nextInt();
+        if (option <= books.size() && notNegative(option))
+            return books.get(option - 1);
+        return null;
     }
 
     public void addOptions(MenuItem option) {

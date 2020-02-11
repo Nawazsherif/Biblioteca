@@ -20,6 +20,5 @@ public class checkOutBooks implements MenuItem{
         bibliotecaUI.listBooks(library.books());
         Book book = bibliotecaUI.checkOutBooks(library.books());
         bibliotecaUI.displayMessage(library.checkOut(book));
-
     }
 }

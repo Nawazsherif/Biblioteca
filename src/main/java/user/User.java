@@ -20,6 +20,7 @@ public class User {
         BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library);
         bibliotecaApp.addOptions(new ListBooks(library, bibliotecaApp));
         bibliotecaApp.addOptions(new checkOutBooks(library, bibliotecaApp));
+        bibliotecaApp.addOptions(new returnBooks(library, bibliotecaApp));
 
         bibliotecaApp.startApp();
         bibliotecaApp.displayMenu();
