@@ -17,7 +17,7 @@ public class Library {
         return WELCOME_MSG;
     }
 
-    public final String checkOut(Book book) {
+    public String checkOut(Book book) {
         String checkOutMsg = "Sorry, that book is not available";
         if (books.contains(book)) {
             checkedOutBooks.add(book);
@@ -27,15 +27,15 @@ public class Library {
         return checkOutMsg;
     }
 
-    public final ArrayList<Book> books() {
+    public ArrayList<Book> books() {
         return books;
     }
 
-    public final ArrayList<Book> checkedOutBooks() {
+    public ArrayList<Book> checkedOutBooks() {
         return checkedOutBooks;
     }
 
-    public final String returnBook(Book book) {
+    public String returnBook(Book book) {
         String bookReturnMsg = "That is not a valid book to return";
         if (checkedOutBooks.contains(book)) {
             books.add(book);

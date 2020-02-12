@@ -1,5 +1,6 @@
 package com.tw.university;
 
+//Checkout books
 public class checkOutBooks implements MenuItem{
 
     private final Library library;
@@ -16,7 +17,7 @@ public class checkOutBooks implements MenuItem{
     }
 
     @Override
-    public void onSelect() {
+    public void select() {
         bibliotecaUI.listBooks(library.books());
         Book book = bibliotecaUI.checkOutBooks(library.books());
         bibliotecaUI.displayMessage(library.checkOut(book));

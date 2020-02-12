@@ -1,5 +1,6 @@
 package com.tw.university;
 
+//Check the list of books
 public class ListBooks implements MenuItem {
 
     private final Library library;
@@ -16,7 +17,7 @@ public class ListBooks implements MenuItem {
     }
 
     @Override
-    public void onSelect() {
+    public void select() {
         bibliotecaUI.listBooks(library.books());
     }
 }

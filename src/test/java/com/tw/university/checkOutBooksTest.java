@@ -3,10 +3,12 @@ package com.tw.university;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 class checkOutBooksTest {
 
@@ -24,5 +26,25 @@ class checkOutBooksTest {
         MenuItem menuItem = new checkOutBooks(library, bibliotecaUI);
 
         assertThat(menuItem.option(), is(equalTo("Checkout a book")));
+    }
+
+    @Test
+    public void shouldInvokeCheckoutBookMethod() {
+        MenuItem menuItem = new checkOutBooks(library, bibliotecaUI);
+        Book mockBookOne = mock(Book.class);
+        Book mockBookTwo = mock(Book.class);
+        Book mockBookThree = mock(Book.class);
+        ArrayList<Book> books = new ArrayList<>() {{
+            add(mockBookOne);
+            add(mockBookTwo);
+            add(mockBookThree);
+        }};
+        when(library.books()).thenReturn(books);
+        when(bibliotecaUI.checkOutBooks(books)).thenReturn(mockBookOne);
+        when(library.checkOut(mockBookOne)).thenReturn("Test Checkout");
+
+        menuItem.select();
+
+        verify(bibliotecaUI, times(1)).displayMessage("Test Checkout");
     }
 }

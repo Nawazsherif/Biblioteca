@@ -30,7 +30,7 @@ class ListBooksTest {
     @Test
     public void shouldReturnListOfBooks() {
         MenuItem menuItem = new ListBooks(library, bibliotecaUI);
-        menuItem.onSelect();
+        menuItem.select();
 
         verify(library, times(1)).books();
     }
