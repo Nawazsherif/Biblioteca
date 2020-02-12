@@ -22,15 +22,15 @@ class ListBooksTest {
 
     @Test
     public void shouldReturnOptionListBooks() {
-        MenuItem menuItem = new ListBooks(library, bibliotecaUI);
+        MenuItem menuItem = new ListBooks(library);
 
         assertThat(menuItem.option(), is(equalTo("List Books")));
     }
 
     @Test
     public void shouldReturnListOfBooks() {
-        MenuItem menuItem = new ListBooks(library, bibliotecaUI);
-        menuItem.select();
+        MenuItem menuItem = new ListBooks(library);
+        menuItem.select(bibliotecaUI);
 
         verify(library, times(1)).books();
     }

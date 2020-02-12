@@ -15,14 +15,14 @@ public class User {
         books.add(book2);
 
         Library library = new Library(books);
+
         Menu menu = new Menu();
+        menu.add(new ListBooks(library));
+        menu.add(new checkOutBooks(library));
+        menu.add(new returnBooks(library));
+        menu.add(new QuitApplication());
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library);
-        bibliotecaApp.addOptions(new ListBooks(library, bibliotecaApp));
-        bibliotecaApp.addOptions(new checkOutBooks(library, bibliotecaApp));
-        bibliotecaApp.addOptions(new returnBooks(library, bibliotecaApp));
-        bibliotecaApp.addOptions(new QuitApplication());
-
         bibliotecaApp.startApp();
         bibliotecaApp.displayMenu();
     }

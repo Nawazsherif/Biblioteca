@@ -3,5 +3,5 @@ package com.tw.university;
 public interface MenuItem {
     String option();
 
-    void select();
+    void select(BibliotecaUI bibliotecaUI);
 }

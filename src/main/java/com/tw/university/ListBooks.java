@@ -4,11 +4,9 @@ package com.tw.university;
 public class ListBooks implements MenuItem {
 
     private final Library library;
-    private final BibliotecaUI bibliotecaUI;
 
-    public ListBooks(Library library, BibliotecaUI bibliotecaUI) {
+    public ListBooks(Library library) {
         this.library = library;
-        this.bibliotecaUI = bibliotecaUI;
     }
 
     @Override
@@ -17,7 +15,7 @@ public class ListBooks implements MenuItem {
     }
 
     @Override
-    public void select() {
+    public void select(BibliotecaUI bibliotecaUI) {
         bibliotecaUI.listBooks(library.books());
     }
 }

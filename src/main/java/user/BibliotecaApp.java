@@ -27,7 +27,7 @@ class BibliotecaApp implements BibliotecaUI {
             System.out.println("Enter choice : ");
             int option = input.nextInt();
             if (option <= menu.size() && notNegative(option))
-                menu.get(option - 1).select();
+                menu.get(option - 1).select(this);
             else
                 System.out.println("Please enter a valid option!");
         }
@@ -75,9 +75,5 @@ class BibliotecaApp implements BibliotecaUI {
         if (option <= books.size() && notNegative(option))
             return books.get(option - 1);
         return null;
-    }
-
-    public void addOptions(MenuItem option) {
-        menu.add(option);
     }
 }

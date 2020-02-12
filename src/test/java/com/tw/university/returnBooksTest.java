@@ -23,14 +23,14 @@ class returnBooksTest {
 
     @Test
     public void shouldReturnOptionListBooks() {
-        MenuItem menuItem = new returnBooks(library, bibliotecaUI);
+        MenuItem menuItem = new returnBooks(library);
 
         assertThat(menuItem.option(), is(equalTo("Return a book")));
     }
 
     @Test
     public void shouldInvokeReturnBookMethod() {
-        MenuItem menuItem = new returnBooks(library, bibliotecaUI);
+        MenuItem menuItem = new returnBooks(library);
         Book mockBookOne = mock(Book.class);
         Book mockBookTwo = mock(Book.class);
         Book mockBookThree = mock(Book.class);
@@ -42,7 +42,7 @@ class returnBooksTest {
         when(library.checkedOutBooks()).thenReturn(books);
         when(bibliotecaUI.returnBooks(books)).thenReturn(mockBookOne);
         when(library.returnBook(mockBookOne)).thenReturn("Test return");
-        menuItem.select();
+        menuItem.select(bibliotecaUI);
 
         verify(bibliotecaUI, times(1)).displayMessage("Test return");
     }
