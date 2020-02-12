@@ -2,14 +2,12 @@ package com.tw.university;
 
 import java.util.ArrayList;
 
-//Represents the UI
+//Represents the Biblioteca UI
 public interface IBibliotecaApp {
 
     void listBooks(ArrayList<Book> books);
 
-    Book checkOutBooks(ArrayList<Book> books);
+    void displayAppMessages(String message);
 
-    void displayMessage(String message);
-
-    Book returnBooks(ArrayList<Book> checkedOutBooks);
+    Book selectBook(ArrayList<Book> books);
 }

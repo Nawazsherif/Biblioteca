@@ -40,11 +40,11 @@ class checkOutBooksTest {
             add(mockBookThree);
         }};
         when(library.books()).thenReturn(books);
-        when(IBibliotecaApp.checkOutBooks(books)).thenReturn(mockBookOne);
+        when(IBibliotecaApp.selectBook(books)).thenReturn(mockBookOne);
         when(library.checkOut(mockBookOne)).thenReturn("Test Checkout");
 
         menuItem.select(IBibliotecaApp);
 
-        verify(IBibliotecaApp, times(1)).displayMessage("Test Checkout");
+        verify(IBibliotecaApp, times(1)).displayAppMessages("Test Checkout");
     }
 }

@@ -58,22 +58,13 @@ class BibliotecaApp implements IBibliotecaApp {
     }
 
     @Override
-    public Book checkOutBooks(ArrayList<Book> books) {
-        return selectBook(books);
-    }
-
-    @Override
-    public void displayMessage(String message) {
+    public void displayAppMessages(String message) {
         System.out.println(message);
     }
 
     @Override
-    public Book returnBooks(ArrayList<Book> books) {
-        return selectBook(books);
-    }
-
-    private Book selectBook(ArrayList<Book> books) {
-        System.out.println("Enter choice: ");
+    public Book selectBook(ArrayList<Book> books) {
+        System.out.println("Enter book to select: ");
         int option = input.nextInt();
         if (option <= books.size() && notNegative(option))
             return books.get(option - 1);

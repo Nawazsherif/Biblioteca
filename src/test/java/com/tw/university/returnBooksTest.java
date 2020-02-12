@@ -39,11 +39,11 @@ class returnBooksTest {
             add(mockBookThree);
         }};
         when(library.checkedOutBooks()).thenReturn(books);
-        when(IBibliotecaApp.returnBooks(books)).thenReturn(mockBookOne);
+        when(IBibliotecaApp.selectBook(books)).thenReturn(mockBookOne);
         when(library.returnBook(mockBookOne)).thenReturn("Test return");
         menuItem.select(IBibliotecaApp);
 
-        verify(IBibliotecaApp, times(1)).displayMessage("Test return");
+        verify(IBibliotecaApp, times(1)).displayAppMessages("Test return");
     }
 
 }
