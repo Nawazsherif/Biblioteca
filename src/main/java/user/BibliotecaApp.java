@@ -1,6 +1,9 @@
 package user;
 
-import com.tw.university.*;
+import com.tw.university.Book;
+import com.tw.university.IBibliotecaApp;
+import com.tw.university.Library;
+import com.tw.university.MenuItem;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,10 +13,10 @@ import java.util.stream.Stream;
 class BibliotecaApp implements IBibliotecaApp {
 
     private final Library library;
-    private final Menu menu;
+    private final ArrayList<MenuItem> menu;
     Scanner input = new Scanner(System.in);
 
-    public BibliotecaApp(Menu menu, Library library) {
+    public BibliotecaApp(ArrayList<MenuItem> menu, Library library) {
         this.menu = menu;
         this.library = library;
     }

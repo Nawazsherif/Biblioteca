@@ -16,7 +16,7 @@ public class User {
 
         Library library = new Library(books);
 
-        Menu menu = new Menu();
+        ArrayList<MenuItem> menu = new ArrayList<>();
         menu.add(new ListBooks(library));
         menu.add(new checkOutBooks(library));
         menu.add(new returnBooks(library));
