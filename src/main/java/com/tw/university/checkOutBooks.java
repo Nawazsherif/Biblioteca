@@ -15,9 +15,9 @@ public class checkOutBooks implements MenuItem {
     }
 
     @Override
-    public void select(BibliotecaUI bibliotecaUI) {
-        bibliotecaUI.listBooks(library.books());
-        Book book = bibliotecaUI.checkOutBooks(library.books());
-        bibliotecaUI.displayMessage(library.checkOut(book));
+    public void select(IBibliotecaApp IBibliotecaApp) {
+        IBibliotecaApp.listBooks(library.books());
+        Book book = IBibliotecaApp.checkOutBooks(library.books());
+        IBibliotecaApp.displayMessage(library.checkOut(book));
     }
 }

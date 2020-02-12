@@ -13,12 +13,12 @@ import static org.mockito.Mockito.times;
 
 class returnBooksTest {
     private Library library;
-    private BibliotecaUI bibliotecaUI;
+    private IBibliotecaApp IBibliotecaApp;
 
     @BeforeEach
     public void Setup() {
         library = mock(Library.class);
-        bibliotecaUI = mock(BibliotecaUI.class);
+        IBibliotecaApp = mock(IBibliotecaApp.class);
     }
 
     @Test
@@ -40,11 +40,11 @@ class returnBooksTest {
             add(mockBookThree);
         }};
         when(library.checkedOutBooks()).thenReturn(books);
-        when(bibliotecaUI.returnBooks(books)).thenReturn(mockBookOne);
+        when(IBibliotecaApp.returnBooks(books)).thenReturn(mockBookOne);
         when(library.returnBook(mockBookOne)).thenReturn("Test return");
-        menuItem.select(bibliotecaUI);
+        menuItem.select(IBibliotecaApp);
 
-        verify(bibliotecaUI, times(1)).displayMessage("Test return");
+        verify(IBibliotecaApp, times(1)).displayMessage("Test return");
     }
 
 }

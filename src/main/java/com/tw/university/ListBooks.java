@@ -15,7 +15,7 @@ public class ListBooks implements MenuItem {
     }
 
     @Override
-    public void select(BibliotecaUI bibliotecaUI) {
-        bibliotecaUI.listBooks(library.books());
+    public void select(IBibliotecaApp IBibliotecaApp) {
+        IBibliotecaApp.listBooks(library.books());
     }
 }

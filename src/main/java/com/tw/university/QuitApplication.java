@@ -9,7 +9,7 @@ public class QuitApplication implements MenuItem {
     }
 
     @Override
-    public void select(BibliotecaUI bibliotecaUI) {
+    public void select(IBibliotecaApp IBibliotecaApp) {
         exit(0);
     }
 }

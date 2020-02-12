@@ -3,7 +3,7 @@ package com.tw.university;
 import java.util.ArrayList;
 
 //Represents the UI
-public interface BibliotecaUI {
+public interface IBibliotecaApp {
 
     void listBooks(ArrayList<Book> books);
 

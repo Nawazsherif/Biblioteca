@@ -12,12 +12,12 @@ import static org.mockito.Mockito.*;
 class ListBooksTest {
 
     private Library library;
-    private BibliotecaUI bibliotecaUI;
+    private IBibliotecaApp IBibliotecaApp;
 
     @BeforeEach
     public void Setup() {
         library = mock(Library.class);
-        bibliotecaUI = mock(BibliotecaUI.class);
+        IBibliotecaApp = mock(IBibliotecaApp.class);
     }
 
     @Test
@@ -30,7 +30,7 @@ class ListBooksTest {
     @Test
     public void shouldReturnListOfBooks() {
         MenuItem menuItem = new ListBooks(library);
-        menuItem.select(bibliotecaUI);
+        menuItem.select(IBibliotecaApp);
 
         verify(library, times(1)).books();
     }

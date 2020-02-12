@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.stream.Stream;
 
 //Represents the user
-class BibliotecaApp implements BibliotecaUI {
+class BibliotecaApp implements IBibliotecaApp {
 
     private final Library library;
     private final Menu menu;
@@ -56,7 +56,7 @@ class BibliotecaApp implements BibliotecaUI {
 
     @Override
     public Book checkOutBooks(ArrayList<Book> books) {
-        return selectABook(books);
+        return selectBook(books);
     }
 
     @Override
@@ -66,10 +66,10 @@ class BibliotecaApp implements BibliotecaUI {
 
     @Override
     public Book returnBooks(ArrayList<Book> books) {
-        return selectABook(books);
+        return selectBook(books);
     }
 
-    private Book selectABook(ArrayList<Book> books) {
+    private Book selectBook(ArrayList<Book> books) {
         System.out.println("Enter choice: ");
         int option = input.nextInt();
         if (option <= books.size() && notNegative(option))
