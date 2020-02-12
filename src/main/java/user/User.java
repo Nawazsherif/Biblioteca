@@ -21,6 +21,7 @@ public class User {
         bibliotecaApp.addOptions(new ListBooks(library, bibliotecaApp));
         bibliotecaApp.addOptions(new checkOutBooks(library, bibliotecaApp));
         bibliotecaApp.addOptions(new returnBooks(library, bibliotecaApp));
+        bibliotecaApp.addOptions(new QuitApplication());
 
         bibliotecaApp.startApp();
         bibliotecaApp.displayMenu();
