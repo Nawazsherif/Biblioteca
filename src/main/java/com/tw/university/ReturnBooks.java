@@ -1,9 +1,9 @@
 package com.tw.university;
 
-public class returnBooks implements MenuItem {
+public class ReturnBooks implements MenuItem {
     private final Library library;
 
-    public returnBooks(Library library) {
+    public ReturnBooks(Library library) {
         this.library = library;
     }
 

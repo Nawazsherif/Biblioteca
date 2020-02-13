@@ -10,4 +10,6 @@ public interface IBibliotecaApp {
     void displayAppMessages(String message);
 
     Book selectBook(ArrayList<Book> books);
+
+    void listMovies(ArrayList<Movie> movies);
 }

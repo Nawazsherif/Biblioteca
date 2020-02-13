@@ -1,9 +1,6 @@
 package user;
 
-import com.tw.university.Book;
-import com.tw.university.IBibliotecaApp;
-import com.tw.university.Library;
-import com.tw.university.MenuItem;
+import com.tw.university.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -69,5 +66,21 @@ public class BibliotecaApp implements IBibliotecaApp {
         if (option <= books.size() && notNegative(option))
             return books.get(option - 1);
         return null;
+    }
+
+    @Override
+    public void listMovies(ArrayList<Movie> movies) {
+        Stream.generate(() -> " _").limit(29).forEach(System.out::print);
+        System.out.println();
+        System.out.println(String.format("|          Name%-8s|" + "     Director%-4s|" + " Year%-2s|" +
+                " Rating |", " ", " ", " "));
+        Stream.generate(() -> " -").limit(29).forEach(System.out::print);
+        System.out.println();
+        movies.forEach(movie -> {
+            System.out.println(String.format("|   %d.%-17s|  %-15s| %-6d| %-7d|", movies.indexOf(movie)+1, movie.name(),
+                    movie.director(), movie.year(), movie.rating()));
+        });
+        Stream.generate(() -> " -").limit(29).forEach(System.out::print);
+        System.out.println();
     }
 }

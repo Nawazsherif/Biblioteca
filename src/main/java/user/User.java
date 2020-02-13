@@ -23,8 +23,9 @@ public class User {
 
         ArrayList<MenuItem> menu = new ArrayList<>();
         menu.add(new ListBooks(library));
-        menu.add(new checkOutBooks(library));
-        menu.add(new returnBooks(library));
+        menu.add(new CheckOutBooks(library));
+        menu.add(new ReturnBooks(library));
+        menu.add(new ListMovies(library));
         menu.add(new QuitApplication());
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library);

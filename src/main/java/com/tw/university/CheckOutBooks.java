@@ -1,11 +1,11 @@
 package com.tw.university;
 
 //Checkout books
-public class checkOutBooks implements MenuItem {
+public class CheckOutBooks implements MenuItem {
 
     private final Library library;
 
-    public checkOutBooks(Library library) {
+    public CheckOutBooks(Library library) {
         this.library = library;
     }
 

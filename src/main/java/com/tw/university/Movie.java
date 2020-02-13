@@ -3,14 +3,30 @@ package com.tw.university;
 import java.util.Objects;
 
 public class Movie {
-    private final String movieName;
+    private final String name;
     private final int year;
     private final String director;
     private final int rating;
 
-    public Movie(String movieName, int year, String Director, int rating) {
+    public String name() {
+        return name;
+    }
 
-        this.movieName = movieName;
+    public int year() {
+        return year;
+    }
+
+    public String director() {
+        return director;
+    }
+
+    public int rating() {
+        return rating;
+    }
+
+    public Movie(String name, int year, String Director, int rating) {
+
+        this.name = name;
         this.year = year;
         director = Director;
         this.rating = rating;
@@ -23,12 +39,12 @@ public class Movie {
         Movie movie = (Movie) o;
         return year == movie.year &&
                 rating == movie.rating &&
-                movieName.equals(movie.movieName) &&
+                name.equals(movie.name) &&
                 director.equals(movie.director);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(movieName, year, director, rating);
+        return Objects.hash(name, year, director, rating);
     }
 }

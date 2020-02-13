@@ -10,7 +10,8 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.*;
 
-class returnBooksTest {
+class CheckOutBooksTest {
+
     private Library library;
     private IBibliotecaApp IBibliotecaApp;
 
@@ -22,14 +23,14 @@ class returnBooksTest {
 
     @Test
     public void shouldReturnOptionListBooks() {
-        MenuItem menuItem = new returnBooks(library);
+        MenuItem menuItem = new CheckOutBooks(library);
 
-        assertThat(menuItem.option(), is(equalTo("Return a book")));
+        assertThat(menuItem.option(), is(equalTo("Checkout a book")));
     }
 
     @Test
-    public void shouldInvokeReturnBookMethod() {
-        MenuItem menuItem = new returnBooks(library);
+    public void shouldInvokeCheckoutBookMethod() {
+        MenuItem menuItem = new CheckOutBooks(library);
         Book mockBookOne = mock(Book.class);
         Book mockBookTwo = mock(Book.class);
         Book mockBookThree = mock(Book.class);
@@ -38,13 +39,12 @@ class returnBooksTest {
             add(mockBookTwo);
             add(mockBookThree);
         }};
-        when(library.checkedOutBooks()).thenReturn(books);
+        when(library.books()).thenReturn(books);
         when(IBibliotecaApp.selectBook(books)).thenReturn(mockBookOne);
-        when(library.returnBook(mockBookOne)).thenReturn("Test return");
+        when(library.checkOut(mockBookOne)).thenReturn("Test Checkout");
+
         menuItem.select(IBibliotecaApp);
 
-        verify(IBibliotecaApp, times(1)).displayAppMessages("Test return");
+        verify(IBibliotecaApp, times(1)).displayAppMessages("Test Checkout");
     }
-
 }
-
