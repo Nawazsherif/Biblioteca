@@ -23,7 +23,12 @@ class LibraryTest {
         ArrayList<Book> books = new ArrayList<>();
         books.add(book1);
         books.add(book2);
-        library = new Library(books);
+        Movie movie1 = new Movie("Ninja storms", 1990, "Cameron", 8);
+        Movie movie2 = new Movie("Dino Thunder", 1990, "Cameron", 8);
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(movie1);
+        movies.add(movie2);
+        library = new Library(books,movies);
     }
 
     @Test
@@ -82,5 +87,16 @@ class LibraryTest {
     public void shouldReturnUnSuccessMsgOnReturningABook() {
         Book book3 = new Book("Curse of the Wild", "Toriyama", 1986);
         assertThat(library.returnBook(book3), is(equalTo("That is not a valid book to return")));
+    }
+
+    @Test
+    public void shouldReturnValidMovies() {
+        Movie movie1 = new Movie("Ninja storms", 1990, "Cameron", 8);
+        Movie movie2 = new Movie("Dino Thunder", 1990, "Cameron", 8);
+        ArrayList<Movie> movies = new ArrayList<>();
+        movies.add(movie1);
+        movies.add(movie2);
+
+        assertThat(library.movies(),is(equalTo(movies)));
     }
 }

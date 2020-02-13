@@ -6,11 +6,13 @@ import java.util.ArrayList;
 public class Library {
     private static final String WELCOME_MSG = "Welcome to Library. Your one-stop-shop " +
             "for great book titles in Bangalore!";
-    private ArrayList<Book> books;
-    private ArrayList<Book> checkedOutBooks = new ArrayList<>();
+    private final ArrayList<Book> books;
+    private final ArrayList<Movie> movies;
+    private final ArrayList<Book> checkedOutBooks = new ArrayList<>();
 
-    public Library(ArrayList<Book> books) {
+    public Library(ArrayList<Book> books, ArrayList<Movie> movies) {
         this.books = books;
+        this.movies = movies;
     }
 
     public String welcomeMsg() {
@@ -43,5 +45,9 @@ public class Library {
             bookReturnMsg = "Thank you for returning the book.";
         }
         return bookReturnMsg;
+    }
+
+    public ArrayList<Movie> movies() {
+        return movies;
     }
 }

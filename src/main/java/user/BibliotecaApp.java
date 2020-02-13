@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.stream.Stream;
 
 //Represents the user
-class BibliotecaApp implements IBibliotecaApp {
+public class BibliotecaApp implements IBibliotecaApp {
 
     private final Library library;
     private final ArrayList<MenuItem> menu;
