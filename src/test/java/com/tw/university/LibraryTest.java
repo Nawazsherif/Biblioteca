@@ -108,4 +108,21 @@ class LibraryTest {
 
         assertFalse(library.movies().contains(movie1));
     }
+
+    @Test
+    public void shouldCheckWhetherTheUserIsValid()
+    {
+        User user1 = new User("0123-23456", "password");
+
+        assertEquals( library.checkUser(user1),"Valid user");
+    }
+
+    @Test
+    public void shouldCheckWhetherTheUserIsInValid()
+    {
+        User user1 = new User("0123-23456", "password");
+
+        assertEquals( library.checkUser(user1),"Valid user");
+    }
+
 }

@@ -4,7 +4,7 @@ import com.tw.university.*;
 
 import java.util.ArrayList;
 
-public class User {
+public class StartApplication {
 
     public static void main(String[] args) {
         Book book1 = new Book("Adventure Time", "Crusoe", 1999);

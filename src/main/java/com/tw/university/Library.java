@@ -9,11 +9,19 @@ public class Library {
     private final ArrayList<Book> books;
     private final ArrayList<Movie> movies;
     private final ArrayList<Book> checkedOutBooks = new ArrayList<>();
+    private final ArrayList<User> users = new ArrayList<>();
 
     public Library(ArrayList<Book> books, ArrayList<Movie> movies) {
         this.books = books;
         this.movies = movies;
+        initUser();
     }
+
+    private void initUser() {
+        User user1 = new User("0123-23456", "password");
+        users.add(user1);
+    }
+
 
     public String welcomeMsg() {
         return WELCOME_MSG;
@@ -53,5 +61,14 @@ public class Library {
 
     public void checkOut(Movie movie) {
         movies.remove(movie);
+    }
+
+    public String checkUser(User user1) {
+        for (User user : users) {
+            if (user.equals(user1)) {
+                return "Valid user";
+            }
+        }
+        return "Invalid user";
     }
 }
