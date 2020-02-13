@@ -26,6 +26,7 @@ public class User {
         menu.add(new CheckOutBooks(library));
         menu.add(new ReturnBooks(library));
         menu.add(new ListMovies(library));
+        menu.add(new CheckOutMovie(library));
         menu.add(new QuitApplication());
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library);

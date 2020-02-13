@@ -69,6 +69,15 @@ public class BibliotecaApp implements IBibliotecaApp {
     }
 
     @Override
+    public Movie selectMovie(ArrayList<Movie> movies) {
+        System.out.println("Enter book to select: ");
+        int option = input.nextInt();
+        if (option <= movies.size() && notNegative(option))
+            return movies.get(option - 1);
+        return null;
+    }
+
+    @Override
     public void listMovies(ArrayList<Movie> movies) {
         Stream.generate(() -> " _").limit(29).forEach(System.out::print);
         System.out.println();

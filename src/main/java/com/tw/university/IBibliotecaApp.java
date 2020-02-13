@@ -11,5 +11,7 @@ public interface IBibliotecaApp {
 
     Book selectBook(ArrayList<Book> books);
 
+    Movie selectMovie(ArrayList<Movie> movies);
+
     void listMovies(ArrayList<Movie> movies);
 }
