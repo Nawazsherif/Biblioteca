@@ -14,6 +14,8 @@ class LibraryTest {
     private Book book1;
     private Book book2;
     private Library library;
+    Movie movie1;
+    Movie movie2;
 
     @BeforeEach
     public void setUp() {
@@ -23,8 +25,8 @@ class LibraryTest {
         ArrayList<Book> books = new ArrayList<>();
         books.add(book1);
         books.add(book2);
-        Movie movie1 = new Movie("Ninja storms", 1990, "Cameron", 8);
-        Movie movie2 = new Movie("Dino Thunder", 1990, "Cameron", 8);
+        movie1 = new Movie("Ninja storms", 1990, "Cameron", 8);
+        movie2 = new Movie("Dino Thunder", 1990, "Cameron", 8);
         ArrayList<Movie> movies = new ArrayList<>();
         movies.add(movie1);
         movies.add(movie2);
@@ -98,5 +100,12 @@ class LibraryTest {
         movies.add(movie2);
 
         assertThat(library.movies(),is(equalTo(movies)));
+    }
+
+    @Test
+    public void shouldCheckoutMovie() {
+        library.checkOut(movie1);
+
+        assertFalse(library.movies().contains(movie1));
     }
 }

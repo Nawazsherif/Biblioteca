@@ -50,4 +50,8 @@ public class Library {
     public ArrayList<Movie> movies() {
         return movies;
     }
+
+    public void checkOut(Movie movie) {
+        movies.remove(movie);
+    }
 }
