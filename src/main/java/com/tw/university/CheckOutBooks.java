@@ -1,7 +1,5 @@
 package com.tw.university;
 
-import user.BibliotecaApp;
-
 //Checkout books
 public class CheckOutBooks implements MenuItem {
 
@@ -18,7 +16,6 @@ public class CheckOutBooks implements MenuItem {
 
     @Override
     public void select(IBibliotecaApp IBibliotecaApp) {
-        IBibliotecaApp.listBooks(library.books());
         Book book = IBibliotecaApp.selectBook(library.books());
         IBibliotecaApp.displayAppMessages(library.checkOut(book));
     }

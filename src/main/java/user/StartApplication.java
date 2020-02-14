@@ -29,6 +29,7 @@ public class StartApplication {
         menu.add(new ListMovies(library));
         menu.add(new CheckOutMovie(library));
         menu.add(new QuitApplication());
+        menu.add(new Logout());
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library);
         bibliotecaApp.startApp();

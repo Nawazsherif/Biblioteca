@@ -66,6 +66,7 @@ public class BibliotecaApp implements IBibliotecaApp, LoginItem {
             System.out.println("Please login to continue\n");
             displayMenu();
         }
+        listBooks(books);
         System.out.println("Enter book to select: ");
         int option = input.nextInt();
         if (option <= books.size() && notNegative(option))
@@ -90,10 +91,9 @@ public class BibliotecaApp implements IBibliotecaApp, LoginItem {
                 " Rating |", " ", " ", " "));
         Stream.generate(() -> " -").limit(29).forEach(System.out::print);
         System.out.println();
-        movies.forEach(movie -> {
-            System.out.println(String.format("|   %d.%-17s|  %-15s| %-6d| %-7d|", movies.indexOf(movie) + 1, movie.name(),
-                    movie.director(), movie.year(), movie.rating()));
-        });
+        movies.forEach(movie -> System.out.println(String.format("|   %d.%-17s|  %-15s| %-6d| %-7d|",
+                movies.indexOf(movie) + 1, movie.name(),
+                movie.director(), movie.year(), movie.rating())));
         Stream.generate(() -> " -").limit(29).forEach(System.out::print);
         System.out.println();
     }
@@ -109,5 +109,10 @@ public class BibliotecaApp implements IBibliotecaApp, LoginItem {
             System.out.println("Invalid user! Unable to login.\n");
         else
             System.out.println("User logged in successfully.\n");
+    }
+
+    @Override
+    public void logout() {
+        user = null;
     }
 }
