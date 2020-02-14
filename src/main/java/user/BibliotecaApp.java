@@ -100,6 +100,10 @@ public class BibliotecaApp implements IBibliotecaApp, LoginItem {
 
     @Override
     public void login() {
+        if (user != null) {
+            System.out.println("Please logout to continue...");
+            displayMenu();
+        }
         System.out.println("Enter user id: ");
         String id = input.next();
         System.out.println("Enter password: ");
