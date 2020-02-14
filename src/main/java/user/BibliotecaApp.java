@@ -7,11 +7,12 @@ import java.util.Scanner;
 import java.util.stream.Stream;
 
 //Represents the user
-public class BibliotecaApp implements IBibliotecaApp {
+public class BibliotecaApp implements IBibliotecaApp, LoginItem {
 
     private final Library library;
     private final ArrayList<MenuItem> menu;
     Scanner input = new Scanner(System.in);
+    private User user;
 
     public BibliotecaApp(ArrayList<MenuItem> menu, Library library) {
         this.menu = menu;
@@ -61,6 +62,10 @@ public class BibliotecaApp implements IBibliotecaApp {
 
     @Override
     public Book selectBook(ArrayList<Book> books) {
+        if (user == null) {
+            System.out.println("Please login to continue\n");
+            displayMenu();
+        }
         System.out.println("Enter book to select: ");
         int option = input.nextInt();
         if (option <= books.size() && notNegative(option))
@@ -86,10 +91,23 @@ public class BibliotecaApp implements IBibliotecaApp {
         Stream.generate(() -> " -").limit(29).forEach(System.out::print);
         System.out.println();
         movies.forEach(movie -> {
-            System.out.println(String.format("|   %d.%-17s|  %-15s| %-6d| %-7d|", movies.indexOf(movie)+1, movie.name(),
+            System.out.println(String.format("|   %d.%-17s|  %-15s| %-6d| %-7d|", movies.indexOf(movie) + 1, movie.name(),
                     movie.director(), movie.year(), movie.rating()));
         });
         Stream.generate(() -> " -").limit(29).forEach(System.out::print);
         System.out.println();
+    }
+
+    @Override
+    public void login() {
+        System.out.println("Enter user id: ");
+        String id = input.next();
+        System.out.println("Enter password: ");
+        String password = input.next();
+        user = library.findUser(id, password);
+        if (user == null)
+            System.out.println("Invalid user! Unable to login.\n");
+        else
+            System.out.println("User logged in successfully.\n");
     }
 }

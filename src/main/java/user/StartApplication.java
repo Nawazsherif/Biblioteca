@@ -22,6 +22,7 @@ public class StartApplication {
         Library library = new Library(books, movies);
 
         ArrayList<MenuItem> menu = new ArrayList<>();
+        menu.add(new Login(library));
         menu.add(new ListBooks(library));
         menu.add(new CheckOutBooks(library));
         menu.add(new ReturnBooks(library));

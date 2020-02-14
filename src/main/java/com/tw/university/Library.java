@@ -63,12 +63,12 @@ public class Library {
         movies.remove(movie);
     }
 
-    public String checkUser(User user1) {
+    public User findUser(String id, String password) {
         for (User user : users) {
-            if (user.equals(user1)) {
-                return "Valid user";
+            if (user.userId().equals(id) && user.password().equals(password)) {
+                return user;
             }
         }
-        return "Invalid user";
+        return null;
     }
 }

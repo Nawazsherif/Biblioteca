@@ -114,15 +114,15 @@ class LibraryTest {
     {
         User user1 = new User("0123-23456", "password");
 
-        assertEquals( library.checkUser(user1),"Valid user");
+        assertEquals( library.findUser("0123-23456","password"),user1);
     }
 
     @Test
     public void shouldCheckWhetherTheUserIsInValid()
     {
-        User user1 = new User("0123-23456", "password");
+        User user1 = new User("0124-23456", "password");
 
-        assertEquals( library.checkUser(user1),"Valid user");
+        assertFalse(library.findUser("0123-23456","password").equals(user1));
     }
 
 }

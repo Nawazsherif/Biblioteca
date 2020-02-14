@@ -24,4 +24,12 @@ public class User {
     public int hashCode() {
         return Objects.hash(userId, password);
     }
+
+    public String userId() {
+        return userId;
+    }
+
+    public String password() {
+        return password;
+    }
 }
