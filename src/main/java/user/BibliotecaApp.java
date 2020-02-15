@@ -19,7 +19,7 @@ public class BibliotecaApp implements IBibliotecaApp, LoginItem {
         this.defaultMenu = defaultMenu;
         this.library = library;
         userMenu = (ArrayList<MenuItem>) defaultMenu.clone();
-        userMenu.add(new showProfile());
+        userMenu.add(new ShowProfile());
     }
 
     public void displayMenu() {

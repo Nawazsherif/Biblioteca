@@ -8,15 +8,13 @@ public class User {
     private final String phone_number;
     private final String mail_id;
     private final String name;
-    private final UserType userType;
 
-    public User(String userId, String password, String phone_number, String mail_id, String name, UserType userType) {
+    public User(String userId, String password, String phone_number, String mail_id, String name) {
         this.userId = userId;
         this.password = password;
         this.phone_number = phone_number;
         this.mail_id = mail_id;
         this.name = name;
-        this.userType = userType;
     }
 
     public String name() {
