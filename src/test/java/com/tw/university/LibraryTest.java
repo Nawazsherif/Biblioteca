@@ -112,7 +112,7 @@ class LibraryTest {
     @Test
     public void shouldCheckWhetherTheUserIsValid()
     {
-        User user1 = new User("0123-23456", "password");
+        User user1 = new User("0123-23456", "password", "9876543210", "usermail@gmail.com", "user1", UserType.MEMBER);
 
         assertEquals( library.findUser("0123-23456","password"),user1);
     }
@@ -120,7 +120,7 @@ class LibraryTest {
     @Test
     public void shouldCheckWhetherTheUserIsInValid()
     {
-        User user1 = new User("0124-23456", "password");
+        User user1 = new User("0124-23456", "password", "9876543210", "usermail@gmail.com", "user1", UserType.MEMBER);
 
         assertFalse(library.findUser("0123-23456","password").equals(user1));
     }

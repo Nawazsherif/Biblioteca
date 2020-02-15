@@ -10,20 +10,31 @@ import java.util.stream.Stream;
 public class BibliotecaApp implements IBibliotecaApp, LoginItem {
 
     private final Library library;
-    private final ArrayList<MenuItem> menu;
+    private final ArrayList<MenuItem> defaultMenu;
+    private final ArrayList<MenuItem> userMenu;
     Scanner input = new Scanner(System.in);
     private User user;
 
-    public BibliotecaApp(ArrayList<MenuItem> menu, Library library) {
-        this.menu = menu;
+    public BibliotecaApp(ArrayList<MenuItem> defaultMenu, Library library) {
+        this.defaultMenu = defaultMenu;
         this.library = library;
+        userMenu = (ArrayList<MenuItem>) defaultMenu.clone();
+        userMenu.add(new showProfile());
     }
 
     public void displayMenu() {
         //noinspection InfiniteLoopStatement
         while (true) {
+
+            ArrayList<MenuItem> menu;
+            if (user == null) {
+                menu = defaultMenu;
+            } else {
+                menu = userMenu;
+            }
             System.out.println("Main menu : ");
-            menu.forEach(menuItem -> System.out.println(menu.indexOf(menuItem) + 1 + ". " + menuItem.option()));
+            ArrayList<MenuItem> finalMenu = menu;
+            menu.forEach(menuItem -> System.out.println(finalMenu.indexOf(menuItem) + 1 + ". " + menuItem.option()));
 
             System.out.println("Enter choice : ");
             int option = input.nextInt();
@@ -96,6 +107,13 @@ public class BibliotecaApp implements IBibliotecaApp, LoginItem {
                 movie.director(), movie.year(), movie.rating())));
         Stream.generate(() -> " -").limit(29).forEach(System.out::print);
         System.out.println();
+    }
+
+    @Override
+    public void showProfile() {
+        System.out.println("Name: " + user.name());
+        System.out.println("Mail ID: " + user.mail_id());
+        System.out.println("Phone number: " + user.phone_number());
     }
 
     @Override

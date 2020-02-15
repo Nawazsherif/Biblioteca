@@ -5,10 +5,30 @@ import java.util.Objects;
 public class User {
     private final String userId;
     private final String password;
+    private final String phone_number;
+    private final String mail_id;
+    private final String name;
+    private final UserType userType;
 
-    public User(String userId, String password) {
+    public User(String userId, String password, String phone_number, String mail_id, String name, UserType userType) {
         this.userId = userId;
         this.password = password;
+        this.phone_number = phone_number;
+        this.mail_id = mail_id;
+        this.name = name;
+        this.userType = userType;
+    }
+
+    public String name() {
+        return name;
+    }
+
+    public String phone_number() {
+        return phone_number;
+    }
+
+    public String mail_id() {
+        return mail_id;
     }
 
     @Override

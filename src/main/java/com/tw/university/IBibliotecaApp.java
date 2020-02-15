@@ -14,4 +14,6 @@ public interface IBibliotecaApp {
     Movie selectMovie(ArrayList<Movie> movies);
 
     void listMovies(ArrayList<Movie> movies);
+
+    void showProfile();
 }

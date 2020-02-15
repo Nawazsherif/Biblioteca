@@ -18,7 +18,7 @@ public class Library {
     }
 
     private void initUser() {
-        User user1 = new User("0123-23456", "password");
+        User user1 = new User("0123-23456", "password", "9876543210", "usermail@gmail.com", "user1", UserType.MEMBER);
         users.add(user1);
     }
 
